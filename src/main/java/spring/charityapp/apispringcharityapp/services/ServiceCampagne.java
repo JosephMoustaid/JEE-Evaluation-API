@@ -21,11 +21,15 @@ public class ServiceCampagne {
         List<Campagne> activeCampagnes = new ArrayList<>();
         for(Campagne campagne : allCampagnes){
             if(campagne.isActive()){
-                allCampagnes.add(campagne);
+                activeCampagnes.add(campagne);
             }
         }
 
         return activeCampagnes;
+    }
+
+    public Campagne findById(int id){
+        return campagneRepository.findById(id);
     }
 
 }

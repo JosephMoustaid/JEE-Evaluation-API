@@ -1,6 +1,8 @@
 package spring.charityapp.apispringcharityapp.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,9 +24,11 @@ public class Donation {
     private Campagne campagne;
 
     @Column(name="nom_donateur")
+    @Size(min = 2, max = 100, message = "Le nom doit contenir entre 2 et 100 caractères")
     private String nomDonateur;
 
     @Column(name="montant")
+    @DecimalMin(value = "0.50", message = "Le montant minimum est 0.50€")
     private Float montant;
 
     @Column(name="date")

@@ -16,13 +16,13 @@ public class ServiceDonation {
 
     //▪ ServiceDon : enregistrer un don, transformer une entité en DonDTO
 
-    public void saveDon(Donation don){
-        donationRepository.save(don);
+    public Donation saveDon(Donation don){
+
+        return  donationRepository.save(don);
     }
 
     public DonDTO mapDonationToDTO(Donation don){
         return new DonDTO(
-            don.getId() ,
             don.getCampagne().getNom() ,
             don.getNomDonateur() ,
             don.getMontant() ,

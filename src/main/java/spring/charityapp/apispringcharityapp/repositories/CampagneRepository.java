@@ -7,4 +7,7 @@ import spring.charityapp.apispringcharityapp.models.Campagne;
 
 @Repository
 public interface CampagneRepository extends JpaRepository<Campagne, Integer> {
+
+    Campagne findById(int id );
+
 }
